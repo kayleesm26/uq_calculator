@@ -1,17 +1,16 @@
 [project]
-name = "myproject"
+name = "ece-calculator"
 version = "0.1.0"
-description = ""
-authors = [
-    {name = "Your Name",email = "you@example.com"}
-]
+description = "Calculate Expected Calibration Error (ECE) from model predictions"
 readme = "README.md"
-requires-python = ">=3.12"
-dependencies = [
+requires-python = ">=3.10"
+authors = [
+    { name = "Kaylee Smith", email = "you@example.com" }
 ]
+dependencies = []
 
 [tool.poetry]
-packages = [{include = "myproject", from = "src"}]
+packages = [{ include = "ece_calculator", from = "src" }]
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
