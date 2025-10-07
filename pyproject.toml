@@ -3,11 +3,11 @@ name = "ece-calculator"
 version = "0.1.0"
 description = "Calculate Expected Calibration Error (ECE) from model predictions"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11,<4.0"
 authors = [
     { name = "Kaylee Smith", email = "you@example.com" }
 ]
-dependencies = []
+dependencies = ["numpy (>=2.3.3,<3.0.0)", "scipy (>=1.16.2,<2.0.0)"]
 
 [tool.poetry]
 packages = [{ include = "ece_calculator", from = "src" }]
