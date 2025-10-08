@@ -4,10 +4,8 @@ from scipy.stats import norm
 def get_ece(y_true: np.ndarray, mu: np.ndarray, sigma: np.ndarray, n_levels: int = 1000) -> float:
     """
     Regression Expected Calibration Error (ECE).
-    Compares nominal vs empirical coverage over many confidence levels.
 
     Parameters
-    ----------
     y_true : np.ndarray
         True target values (N,)
     mu : np.ndarray
@@ -15,10 +13,9 @@ def get_ece(y_true: np.ndarray, mu: np.ndarray, sigma: np.ndarray, n_levels: int
     sigma : np.ndarray
         Predicted standard deviations (N,)
     n_levels : int
-        Number of confidence levels to evaluate (higher = smoother).
+        Number of confidence levels to evaluate (default = 1000, higher = smoother).
 
     Returns
-    -------
     float
         ECE in percentage points. Smaller is better (0 = perfect calibration).
     """
