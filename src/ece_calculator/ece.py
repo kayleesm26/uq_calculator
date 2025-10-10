@@ -1,7 +1,8 @@
 import numpy as np
 from scipy.stats import norm
 
-def get_ece(y_true: np.ndarray, mu: np.ndarray, sigma: np.ndarray, n_levels: int = 1000) -> float:
+
+def get_ece(y_true: np.ndarray, mu: np.ndarray, sigma: np.ndarray, n_levels: int = 1000):
     """
     Regression Expected Calibration Error (ECE).
 
@@ -17,17 +18,19 @@ def get_ece(y_true: np.ndarray, mu: np.ndarray, sigma: np.ndarray, n_levels: int
 
     Returns
     float
-        ECE in percentage points. Smaller is better (0 = perfect calibration).
+        ECE in percentage. Smaller is better (0 = perfect calibration).
     """
-    exp_cis = np.linspace(1e-10, 1 - 1e-10, n_levels)
-    pred_cis = []
+    confidence_levels = np.linspace(1e-10, 1 - 1e-10, n_levels)
+    coverage_differences = []
 
-    for ci in exp_cis:
-        lower, upper = norm.interval(ci, loc=mu, scale=sigma)
-        coverage = ((y_true > lower) & (y_true < upper)).mean()
-        pred_cis.append(coverage)
+    for conf_level in confidence_levels:
+        expected_coverage = conf_level
 
-    exp_cis = np.array(exp_cis)
-    pred_cis = np.array(pred_cis)
+        z_value = norm.ppf(1 - (1 - conf_level) / 2)
+        lower = mu - z_value * sigma
+        upper = mu + z_value * sigma
 
-    return 100 * np.mean(np.abs(exp_cis - pred_cis))
+        actual_coverage = np.mean((y_true >= lower) & (y_true <= upper))
+        coverage_differences.append(np.abs(expected_coverage - actual_coverage))
+
+    return 100 * np.mean(coverage_differences)
