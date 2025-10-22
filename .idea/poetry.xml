@@ -4,6 +4,7 @@
     <option name="poetryVirtualenvPaths">
       <set>
         <option value="$PROJECT_DIR$/../Library/Caches/pypoetry/virtualenvs/ece-calculator-d1vY2-Ld-py3.12/bin/python" />
+        <option value="$PROJECT_DIR$/../Library/Caches/pypoetry/virtualenvs/ece-calculator-vm-afmlB-py3.12/bin/python" />
       </set>
     </option>
   </component>
