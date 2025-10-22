@@ -4,9 +4,9 @@ version = "0.1.0"
 description = "Calculate Expected Calibration Error (ECE) from model predictions"
 readme = "README.md"
 authors = ["Kaylee Smith"]
-#license = "MIT"
+license = "MIT"
 #homepage = "https://github.com/yourusername/ece-calculator"
-#repository = "https://github.com/yourusername/ece-calculator"
+#repository = "https:L//github.com/yourusername/ece-calculator"
 keywords = ["ECE", "uncertainty", "calibration", "machine learning"]
 packages = [{ include = "ece_calculator", from = "src" }]
 
