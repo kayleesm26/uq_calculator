@@ -13,7 +13,7 @@ def get_mc_predictions(model, x_data, n_samples=100, framework="torch"):
     n_samples : int
         Number of MC forward passes.
     framework : str
-        Either 'torch' or 'tf'.
+        Either 'torch' or 'tf'
 
     Returns
     mean_pred : np.ndarray
