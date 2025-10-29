@@ -1,7 +1,5 @@
 import numpy as np
 from scipy.stats import norm
-
-
 def get_ece(y_true: np.ndarray, mu: np.ndarray, sigma: np.ndarray, n_levels: int = 1000):
     """
     Regression Expected Calibration Error (ECE).
