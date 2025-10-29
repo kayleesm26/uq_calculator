@@ -21,43 +21,36 @@ mon_val = np.load("/Users/kayleesmith/uq_calculator/tests/filtered copy/month_va
 day_val = np.load("/Users/kayleesmith/uq_calculator/tests/filtered copy/day_validate.npy")
 y_val  = np.load("/Users/kayleesmith/uq_calculator/tests/filtered copy/y_validate.npy")
 
-print(f"✅ Data loaded:"
+print(f" Data loaded:"
       f"\n  X_validate: {X_val.shape}"
       f"\n  location_validate: {loc_val.shape}"
       f"\n  month_validate: {mon_val.shape}"
       f"\n  day_validate: {day_val.shape}"
       f"\n  y_validate: {y_val.shape}")
 
-# --------------------
+
 # 2) Load the model
-# --------------------
-print(f"\n🔓 Loading model from: {MODEL_PATH}")
+print(f"\nLoading model from: {MODEL_PATH}")
 # compile=False so we don't need custom metric objects at load time
 model = tf.keras.models.load_model(MODEL_PATH, compile=False)
-print("✅ Model loaded.")
+print("Model loaded.")
 
-# --------------------
+
 # 3) Run MC Dropout
-# --------------------
-# Your get_mcd expects:
-#   - model
-#   - x_data (for TF models, pass the SAME list-of-inputs order used in training)
-#   - n_samples
-#   - framework="tf"
+
 inputs = [X_val, loc_val, mon_val, day_val]
 
-print("\n🔄 Running Monte Carlo Dropout sampling (n=100)...")
+print("\n Running Monte Carlo Dropout sampling (n=100)...")
 mean_pred, var_pred, all_preds = get_mcd(
     model,
     x_data=inputs,
     n_samples=1,
     framework="tf"
 )
-print("✅ MC sampling complete.")
+print("MC sampling complete.")
 
-# --------------------
+
 # 4) Metrics
-# --------------------
 # Shapes typically: (N, 24, 1). Flatten to compare.
 y_true_flat  = y_val.reshape(-1)
 mean_flat    = mean_pred.reshape(-1)
@@ -73,6 +66,4 @@ print(f"  RMSE: {rmse:.4f}")
 print(f"  R²  : {r2:.4f}")
 print(f"  NLL : {nll:.4f}")
 print(f"  ECE : {ece:.4f}")
-
-
 

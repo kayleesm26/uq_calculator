@@ -4,11 +4,9 @@ import numpy as np
 def get_mcd(model_or_path, x_data=None, n_samples=100, framework=None, safe_load=True):
     """
     Perform Monte Carlo Dropout (MCD) sampling with PyTorch or TensorFlow/Keras models.
+    Detects model format and framework.
 
-    Automatically detects model format and framework.
-
-    Parameters
-    ----------
+    Parameters:
     model_or_path : model object or str
         Either a loaded model object, or path to a model file/folder.
     x_data : array, tuple, or list
@@ -16,9 +14,9 @@ def get_mcd(model_or_path, x_data=None, n_samples=100, framework=None, safe_load
     n_samples : int
         Number of stochastic forward passes.
     framework : {'torch', 'tf', None}
-        Framework hint. Auto-detected if None.
+        Framework information.
     safe_load : bool
-        For Keras 3/TF2.15: use safe fallbacks (TFSMLayer) when format mismatches.
+        Try to safely open the model even if it’s from another Keras version.
     """
 
     model = model_or_path
@@ -88,7 +86,7 @@ def get_mcd(model_or_path, x_data=None, n_samples=100, framework=None, safe_load
 
     print(f" Loaded model using framework='{framework}' ({detected_fmt or 'object provided'})")
 
-    # Run Monte Carlo Dropout sampling
+    # Run MC sampling
     preds = []
 
     if framework == "torch":
