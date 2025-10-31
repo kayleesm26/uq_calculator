@@ -1,22 +1,21 @@
 [tool.poetry]
 name = "uq-calculator"
-version = "0.1.1"
+version = "0.1.2"
 description = "Run Monte Carlo sampling and calculate metrics."
 readme = "README.md"
 authors = ["Kaylee Smith"]
 license = "MIT"
-#homepage = "https://github.com/yourusername/ece-calculator"
-#repository = "https:L//github.com/yourusername/ece-calculator"
 keywords = ["ECE", "uncertainty", "calibration", "machine learning", "NLL", "MCD"]
 packages = [{ include = "uq_calculator", from = "src" }]
 
 [tool.poetry.dependencies]
-python = "^3.12"
-numpy = "^2.0.0"
-scikit-learn = "^1.7.0"
-scipy = "^1.12.0"
-tensorflow = "^2.20.0"
+python = ">=3.9,<3.13"
+numpy = ">=1.20"
+scipy = ">=1.10"
 
+[tool.poetry.extras]
+tf = ["tensorflow>=2.20.0"]
+sklearn = ["scikit-learn>=1.7.0"]
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
