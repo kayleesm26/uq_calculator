@@ -4,7 +4,6 @@ import numpy as np
 import tensorflow as tf
 from sklearn.metrics import mean_squared_error, r2_score
 from scipy.stats import norm
-
 # Your package
 from uq_calculator import get_mcd, get_ece, get_nll
 

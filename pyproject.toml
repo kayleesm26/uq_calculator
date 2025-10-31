@@ -12,10 +12,13 @@ packages = [{ include = "uq_calculator", from = "src" }]
 python = ">=3.9,<3.13"
 numpy = ">=1.20"
 scipy = ">=1.10"
+tensorflow = { version = ">=2.20.0", optional = true }
+scikit-learn = { version = ">=1.7.0", optional = true }
 
 [tool.poetry.extras]
-tf = ["tensorflow>=2.20.0"]
-sklearn = ["scikit-learn>=1.7.0"]
+tf = ["tensorflow"]
+sklearn = ["scikit-learn"]
+
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
