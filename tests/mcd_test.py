@@ -6,7 +6,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 from scipy.stats import norm
 
 # Your package
-from uq_calculator import get_mcd, get_ece
+from uq_calculator import get_mcd, get_ece, get_nll
 
 # --------------------
 # 1) Paths & data load
@@ -58,7 +58,7 @@ std_flat     = np.sqrt(var_pred.reshape(-1) + 1e-12)  # numerical safety
 
 rmse = np.sqrt(mean_squared_error(y_true_flat, mean_flat))
 r2   = r2_score(y_true_flat, mean_flat)
-nll  = -np.mean(norm.logpdf(y_true_flat, loc=mean_flat, scale=std_flat + 1e-6))
+nll = get_nll(y_true_flat, mean_flat, std_flat)
 ece  = get_ece(y_true_flat, mean_flat, std_flat)
 
 print("\n📊 Validation metrics")

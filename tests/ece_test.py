@@ -1,6 +1,6 @@
 import numpy as np
 from sklearn.linear_model import LinearRegression
-from ece_calculator import get_ece
+from uq_calculator import get_ece
 
 
 def test_low_ece():

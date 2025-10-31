@@ -1,14 +1,14 @@
 [tool.poetry]
-name = "ece-calculator"
-version = "0.1.0"
-description = "Calculate Expected Calibration Error (ECE) from model predictions"
+name = "uq-calculator"
+version = "0.1.1"
+description = "Run Monte Carlo sampling and calculate metrics."
 readme = "README.md"
 authors = ["Kaylee Smith"]
 license = "MIT"
 #homepage = "https://github.com/yourusername/ece-calculator"
 #repository = "https:L//github.com/yourusername/ece-calculator"
-keywords = ["ECE", "uncertainty", "calibration", "machine learning"]
-packages = [{ include = "ece_calculator", from = "src" }]
+keywords = ["ECE", "uncertainty", "calibration", "machine learning", "NLL", "MCD"]
+packages = [{ include = "uq_calculator", from = "src" }]
 
 [tool.poetry.dependencies]
 python = "^3.12"
