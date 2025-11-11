@@ -45,7 +45,7 @@ def evaluate_all(
         "ECE": float(ece),
     }
 
-    fig, ax = uq_vis(
+    fig, ax = plot_confidence_band(
         y_true=y_true,
         mu=mu,
         sigma=sigma,
