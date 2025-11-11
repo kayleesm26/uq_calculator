@@ -1,7 +1,7 @@
 import numpy as np
 from uq_calculator.get_nll import get_nll
 from uq_calculator.get_ece import get_ece
-from uq_calculator.uq_vis import uq_vis
+from uq_calculator.plot_confidence_band import plot_confidence_band
 
 
 
@@ -34,7 +34,7 @@ def evaluate_all(
     metrics : dict
         Contains {"NLL": float, "ECE": float}
     fig, ax : matplotlib Figure and Axes
-        The generated confidence band plot.
+        The generated confidence band plot
     """
 
     nll = get_nll(y_true, mu, sigma)
