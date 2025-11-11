@@ -109,6 +109,8 @@ def get_mcd(model_or_path, x_data=None, n_samples=100, framework=None, safe_load
     preds = np.stack(preds)
     mean_pred = np.mean(preds, axis=0)
     var_pred = np.var(preds, axis=0)
+    #check preds
+    #look into aleatoric
 
     print(f" Completed {n_samples} MC passes.")
     print(f" Output shapes → mean: {mean_pred.shape}, var: {var_pred.shape}")
